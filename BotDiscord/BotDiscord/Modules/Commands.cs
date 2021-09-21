@@ -15,6 +15,29 @@ namespace BotDiscord.Modules
             await Context.Channel.SendMessageAsync("Mensagem de teste retorno!");
         }
         
+        //Card de entrada no servidor e check para dar cargo
+        [Command("verificar")]
+        public async Task Verificar()
+        {
+            var imgFooter =
+                "https://cdn.discordapp.com/attachments/654672723846496266/887889620254224384/31780396ad86894b9271e46e2a18442174b236d0_full.png";
+            
+            var builder = new EmbedBuilder()
+                .WithThumbnailUrl(Context.Guild.IconUrl)
+                .WithTitle("Bem vindo ao Cartel!")
+                .WithColor(new Color(119, 13, 133))
+                .AddField("Como começar?",
+                    "Após ler a constituição, clique no check para tornar-se um SUB-HUMANO e começar a usar o servidor!", true)
+                .WithFooter("É os guri e não tem como", imgFooter);
+            
+            var embed = builder.Build();
+            
+            var mensagemInicial = await Context.Channel.SendMessageAsync(null, false, embed);
+            var checkEmoji = new Emoji("\u2705");
+            
+            await mensagemInicial.AddReactionAsync(checkEmoji);
+        }
+        
         //Informações de quem executa o comando User
         [Command("template")]
         public async Task Info(SocketGuildUser user = null)

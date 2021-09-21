@@ -14,7 +14,8 @@
           "Discord.Net.WebSocket": "2.4.0",
           "Microsoft.Extensions.Configuration": "6.0.0-rc.1.21451.13",
           "Microsoft.Extensions.DependencyInjection": "6.0.0-rc.1.21451.13",
-          "NetEscapades.Configuration.Yaml": "2.1.0"
+          "NetEscapades.Configuration.Yaml": "2.1.0",
+          "Victoria": "5.1.9"
         },
         "runtime": {
           "BotDiscord.dll": {}
@@ -344,6 +345,18 @@
           "System.Runtime": "4.3.0"
         }
       },
+      "Victoria/5.1.9": {
+        "dependencies": {
+          "Discord.Net.WebSocket": "2.4.0",
+          "Microsoft.Extensions.DependencyInjection": "6.0.0-rc.1.21451.13"
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/Victoria.dll": {
+            "assemblyVersion": "5.1.9.0",
+            "fileVersion": "5.1.9.0"
+          }
+        }
+      },
       "YamlDotNet/9.1.0": {
         "runtime": {
           "lib/netstandard2.1/YamlDotNet.dll": {
@@ -611,6 +624,13 @@
       "sha512": "sha512-LbSxKEdOUhVe8BezB/9uOGGppt+nZf6e1VFyw6v3DN6lqitm0OSn2uXMOdtP0M3W4iMcqcivm2J6UgqiwwnXiA==",
       "path": "system.threading.tasks/4.3.0",
       "hashPath": "system.threading.tasks.4.3.0.nupkg.sha512"
+    },
+    "Victoria/5.1.9": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-AeoGBU/8jhQS82M1sdaV+gvZYlp1ZgVFaa444vl19CV+KQJDFr0BZMqbsfXZEDXYmUD88lc2gLgKKk0UHq9+4g==",
+      "path": "victoria/5.1.9",
+      "hashPath": "victoria.5.1.9.nupkg.sha512"
     },
     "YamlDotNet/9.1.0": {
       "type": "package",

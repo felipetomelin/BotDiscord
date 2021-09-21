@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "LzerTDYpGDr2pHEz1zfsCitwipRgrj8lNSZZ6uSe9unlMbTi1Ra7qfkaOvInTlxoK8jJnkiUqJugj4aX0aDutQ==",
+  "dgSpecHash": "9GyISfWUVBgYnEPp95ur5BWbD2FQYOmmO3S1/glT9YD8pPdc9Kz21F0ivNolxMF0c5DNmnCZgz6dRtGiYWPb6g==",
   "success": true,
   "projectFilePath": "C:\\Users\\Felipe\\OneDrive\\Área de Trabalho\\BotDiscord\\BotDiscord\\BotDiscord\\BotDiscord.csproj",
   "expectedPackageFiles": [
@@ -40,6 +40,7 @@
     "C:\\Users\\Felipe\\.nuget\\packages\\system.text.encoding\\4.3.0\\system.text.encoding.4.3.0.nupkg.sha512",
     "C:\\Users\\Felipe\\.nuget\\packages\\system.threading\\4.3.0\\system.threading.4.3.0.nupkg.sha512",
     "C:\\Users\\Felipe\\.nuget\\packages\\system.threading.tasks\\4.3.0\\system.threading.tasks.4.3.0.nupkg.sha512",
+    "C:\\Users\\Felipe\\.nuget\\packages\\victoria\\5.1.9\\victoria.5.1.9.nupkg.sha512",
     "C:\\Users\\Felipe\\.nuget\\packages\\yamldotnet\\9.1.0\\yamldotnet.9.1.0.nupkg.sha512"
   ],
   "logs": []

@@ -1,28 +1,69 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
+using Discord;
 using Discord.Commands;
 using Discord.WebSocket;
 using Microsoft.Extensions.Configuration;
+using Victoria;
 
 namespace BotDiscord.Services
 {
     public class CommandHandler
     {
-        public static DiscordSocketClient _discord;
-        public static CommandService _commandService;
-        public static IConfigurationRoot _configurationRoot;
-        public static IServiceProvider _serviceProvider;
+        private readonly DiscordSocketClient _discord;
+        private readonly CommandService _commandService;
+        private readonly IConfigurationRoot _configurationRoot;
+        private readonly IServiceProvider _serviceProvider;
+        private readonly LavaNode _lavaNode;
 
         public CommandHandler(DiscordSocketClient discord, CommandService commandService,
-            IConfigurationRoot configurationRoot, IServiceProvider serviceProvider)
+            IConfigurationRoot configurationRoot, IServiceProvider serviceProvider, LavaNode lavaNode)
         {
             _discord = discord;
             _commandService = commandService;
             _configurationRoot = configurationRoot;
             _serviceProvider = serviceProvider;
+            _lavaNode = lavaNode;
 
             _discord.Ready += OnReady;
             _discord.MessageReceived += OnMessageReceived;
+            _discord.ChannelCreated += OnChannelCreated;
+            _discord.JoinedGuild += OnJoinedServer;
+            _discord.ReactionAdded += OnReactionAdded;
+            _discord.Ready += OnReadyAsync;
+        }
+
+        private async Task OnReadyAsync() 
+        {
+            if (!_lavaNode.IsConnected) {
+                _lavaNode.ConnectAsync();
+            }
+        }
+        
+        //Dar cargo ao clicar na reação
+        private async Task OnReactionAdded(Cacheable<IUserMessage, ulong> arg1, ISocketMessageChannel channel, SocketReaction message)
+        {
+            if (message.MessageId != 888205118393176094) return;
+
+            if (message.Emote.Name != "✅") return;
+
+            var role = (channel as SocketGuildChannel).Guild.Roles.FirstOrDefault(x => x.Id == 405917574518538240);
+            await (message.User.Value as SocketGuildUser).AddRoleAsync(role);
+        }
+
+        //Quando o bot é chamado ao servidor
+        private async Task OnJoinedServer(SocketGuild arg)
+        {
+            await arg.DefaultChannel.SendMessageAsync("Obrigado por me chamar para seu servidor.");
+        }
+
+        //Quando criado novo canal dispara esse evento
+        private async Task OnChannelCreated(SocketChannel arg)
+        {
+            if ((arg as ITextChannel) == null) return;
+            var canal = arg as ITextChannel;
+            await canal.SendMessageAsync("Novo canal criado");
         }
 
         private async Task OnMessageReceived(SocketMessage arg)

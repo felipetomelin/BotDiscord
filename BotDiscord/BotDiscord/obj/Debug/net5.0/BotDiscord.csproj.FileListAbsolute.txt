@@ -36,3 +36,4 @@ C:\Users\Felipe\OneDrive\Área de Trabalho\BotDiscord\BotDiscord\BotDiscord\bin\
 C:\Users\Felipe\OneDrive\Área de Trabalho\BotDiscord\BotDiscord\BotDiscord\bin\Debug\net5.0\System.Runtime.CompilerServices.Unsafe.dll
 C:\Users\Felipe\OneDrive\Área de Trabalho\BotDiscord\BotDiscord\BotDiscord\bin\Debug\net5.0\YamlDotNet.dll
 C:\Users\Felipe\OneDrive\Área de Trabalho\BotDiscord\BotDiscord\BotDiscord\obj\Debug\net5.0\BotDiscord.csproj.CopyComplete
+C:\Users\Felipe\OneDrive\Área de Trabalho\BotDiscord\BotDiscord\BotDiscord\bin\Debug\net5.0\Victoria.dll

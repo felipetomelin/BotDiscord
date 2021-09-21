@@ -9,7 +9,7 @@ namespace BotDiscord.Modules
     public class Moderacao : ModuleBase
     {
         //Deletar mensagens do chat
-        [Command("deletar")]
+        // [Command("deletar")]
         [RequireUserPermission(GuildPermission.ManageMessages)]
         public async Task Purge(int amount)
         {

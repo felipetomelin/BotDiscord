@@ -5,6 +5,7 @@ using Discord.Commands;
 using Discord.WebSocket;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Victoria;
 
 namespace BotDiscord
 {
@@ -41,7 +42,12 @@ namespace BotDiscord
 
         private void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton(new DiscordSocketClient(new DiscordSocketConfig
+            services
+            .AddLavaNode( x =>
+            {
+                x.SelfDeaf = true;
+            })
+            .AddSingleton(new DiscordSocketClient(new DiscordSocketConfig
             {
                 LogLevel = Discord.LogSeverity.Verbose,
                 MessageCacheSize = 1000
