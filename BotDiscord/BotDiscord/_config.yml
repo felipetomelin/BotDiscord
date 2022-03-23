@@ -1,1 +1,3 @@
-﻿configdobot
+﻿prefix: '!'
+tokens:
+  discord: 'ODg3NDc4ODEwODI2NjQxNDE4.YUEvDQ.q2Zx0c-jUag74btH48BGIjkAatw'

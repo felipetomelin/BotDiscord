@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Discord;
 using Discord.Commands;
+using Discord.WebSocket;
 using Victoria;
 using Victoria.Enums;
 
@@ -12,6 +14,7 @@ namespace BotDiscord.Modules
     public class Music : ModuleBase<SocketCommandContext>
     {
         private readonly LavaNode _lavaNode;
+        public List<string> ThumbnailPrimeiraMusica = new List<string>();
 
         public Music(LavaNode lavaNode)
         {
@@ -66,17 +69,40 @@ namespace BotDiscord.Modules
             {
                 var track = searchResponse.Tracks[0];
                 player.Queue.Enqueue(track);
-                await ReplyAsync($"Fila de musicas: {track.Title}");
+                
+                var thumbnail = await track.FetchArtworkAsync();
+                ThumbnailPrimeiraMusica.Add(thumbnail);
+                
+                var campos = player.Queue.Select((x, i) => new EmbedFieldBuilder().WithName((i+1).ToString()).WithValue(x.Title + "\n Duração: "+x.Duration)).Reverse();
+                
+                var builder = new EmbedBuilder()
+                    .WithTitle("Musicas:")
+                    .WithFields(campos)
+                    .AddField("Tocando agora:", player.Queue.First().Title)
+                    .WithColor(new Color(119, 13, 133))
+                    .WithImageUrl(ThumbnailPrimeiraMusica[0]);
+                
+                var embed = builder.Build();
+                
+                var messages = await Context.Channel.GetMessagesAsync( 2).FlattenAsync();
+                await (Context.Channel as SocketTextChannel).DeleteMessagesAsync(messages);
+                
+                await Context.Channel.SendMessageAsync(null, false, embed);
             }
             else
             {
                 var track = searchResponse.Tracks[0];
+                player.Queue.Enqueue(track);
+                
                 var thumbnail = await track.FetchArtworkAsync();
 
+                ThumbnailPrimeiraMusica.Add(thumbnail);
+                
                 var builder = new EmbedBuilder()
-                    .WithThumbnailUrl(thumbnail)
-                    .WithDescription($"\n Musicas: {track.Title}")
-                    .WithColor(new Color(119, 13, 133));
+                    .WithTitle($"Musica: {track.Title}")
+                    .WithDescription(track.Duration.ToString())
+                    .WithColor(new Color(119, 13, 133))
+                    .WithImageUrl(thumbnail);
                 var embed = builder.Build();
                 await player.PlayAsync(track);
 
@@ -99,7 +125,7 @@ namespace BotDiscord.Modules
             }
 
             await player.SkipAsync();
-            await ReplyAsync($"Skiped! Agora tocando {player.Track.Title}**!");
+            await ReplyAsync($"Skiped! Agora tocando {player.Track.Title}!");
         }
 
         [Command("pause", RunMode = RunMode.Async)]
@@ -132,7 +158,7 @@ namespace BotDiscord.Modules
             }
 
             await player.PauseAsync();
-            await ReplyAsync($"Musica pausada {player.Track.Title}**!");
+            await ReplyAsync($"Musica pausada {player.Track.Title}!");
         }
 
         [Command("resume", RunMode = RunMode.Async)]
@@ -165,7 +191,7 @@ namespace BotDiscord.Modules
             }
 
             await player.ResumeAsync();
-            await ReplyAsync($"Musica tocando {player.Track.Title}**!");
+            await ReplyAsync($"Musica tocando {player.Track.Title}!");
         }
     }
 }
