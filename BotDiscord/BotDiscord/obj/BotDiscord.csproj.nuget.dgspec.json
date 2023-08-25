@@ -1,32 +1,36 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Felipe\\OneDrive\\Área de Trabalho\\BotDiscord\\BotDiscord\\BotDiscord\\BotDiscord.csproj": {}
+    "C:\\Users\\tomel\\Desktop\\BOT DISCORD\\BotDiscord\\BotDiscord\\BotDiscord\\BotDiscord.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Felipe\\OneDrive\\Área de Trabalho\\BotDiscord\\BotDiscord\\BotDiscord\\BotDiscord.csproj": {
+    "C:\\Users\\tomel\\Desktop\\BOT DISCORD\\BotDiscord\\BotDiscord\\BotDiscord\\BotDiscord.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Felipe\\OneDrive\\Área de Trabalho\\BotDiscord\\BotDiscord\\BotDiscord\\BotDiscord.csproj",
+        "projectUniqueName": "C:\\Users\\tomel\\Desktop\\BOT DISCORD\\BotDiscord\\BotDiscord\\BotDiscord\\BotDiscord.csproj",
         "projectName": "BotDiscord",
-        "projectPath": "C:\\Users\\Felipe\\OneDrive\\Área de Trabalho\\BotDiscord\\BotDiscord\\BotDiscord\\BotDiscord.csproj",
-        "packagesPath": "C:\\Users\\Felipe\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Felipe\\OneDrive\\Área de Trabalho\\BotDiscord\\BotDiscord\\BotDiscord\\obj\\",
+        "projectPath": "C:\\Users\\tomel\\Desktop\\BOT DISCORD\\BotDiscord\\BotDiscord\\BotDiscord\\BotDiscord.csproj",
+        "packagesPath": "C:\\Users\\tomel\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\tomel\\Desktop\\BOT DISCORD\\BotDiscord\\BotDiscord\\BotDiscord\\obj\\",
         "projectStyle": "PackageReference",
+        "crossTargeting": true,
         "configFilePaths": [
-          "C:\\Users\\Felipe\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\tomel\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "net5.0"
+          "net5.0",
+          "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
+            "projectReferences": {}
+          },
+          "net6.0": {
+            "targetAlias": "net6.0",
             "projectReferences": {}
           }
         },
@@ -83,12 +87,83 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[5.0.0, 5.0.0]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[5.0.17, 5.0.17]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[5.0.0, 5.0.0]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[5.0.0, 5.0.0]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Users\\tomel\\.dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+        },
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Discord.Net": {
+              "target": "Package",
+              "version": "[2.4.0, )"
+            },
+            "Discord.Net.Commands": {
+              "target": "Package",
+              "version": "[2.4.0, )"
+            },
+            "Discord.Net.Core": {
+              "target": "Package",
+              "version": "[2.4.0, )"
+            },
+            "Discord.Net.WebSocket": {
+              "target": "Package",
+              "version": "[2.4.0, )"
+            },
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[6.0.0-rc.1.21451.13, )"
+            },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[6.0.0-rc.1.21451.13, )"
+            },
+            "NetEscapades.Configuration.Yaml": {
+              "target": "Package",
+              "version": "[2.1.0, )"
+            },
+            "Victoria": {
+              "target": "Package",
+              "version": "[5.1.9, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Users\\tomel\\.dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -37,7 +37,7 @@ namespace BotDiscord.Services
         private async Task OnReadyAsync() 
         {
             if (!_lavaNode.IsConnected) {
-                _lavaNode.ConnectAsync();
+                await _lavaNode.ConnectAsync();
             }
         }
         

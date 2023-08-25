@@ -44,7 +44,7 @@ namespace BotDiscord
         private void ConfigureServices(IServiceCollection services)
         {
             services
-            .AddLavaNode( x =>
+            .AddLavaNode(x =>
             {
                 x.SelfDeaf = true;
             })
